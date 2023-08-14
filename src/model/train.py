@@ -41,12 +41,12 @@ def get_csvs_df(path):
 
 # DONE-TO DO: add function to split data
 def split_data(df):
-    columns = ['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure', 'TricepsThickness', 'floors', 'price', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age', 'Diabetic']
+    columns = ['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure', 'TricepsThickness', 'floors', 'price', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age', 'Diabetic'] # noqa
     df = df.loc[:, columns]
     df.head(10)
 
     # Features and Target
-    features = ['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure', 'TricepsThickness', 'floors', 'price', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age']
+    features = ['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure', 'TricepsThickness', 'floors', 'price', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age'] # noqa
     X = df.loc[:, features]
     y = df.loc[:, ['Diabetic']]
 
