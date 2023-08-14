@@ -11,10 +11,13 @@ import mlflow
 
 from sklearn.linear_model import LogisticRegression
 
+# Agrego train_test_split p/la func split_data
+from sklearn.model_selection import train_test_split
+
 
 # define functions
 def main(args):
-    # TO DO: enable autologging
+    # DONE-TO DO: enable autologging
     mlflow.autolog()
 
     # read data
@@ -36,8 +39,18 @@ def get_csvs_df(path):
     return pd.concat((pd.read_csv(f) for f in csv_files), sort=False)
 
 
-# TO DO: add function to split data
-def split_data()
+# DONE-TO DO: add function to split data
+def split_data(df)		
+    columns = ['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','floors','price', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age', 'Diabetic']
+    df = df.loc[:, columns]
+    df.head(100)
+
+    #Features and Target
+    features = ['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','floors','price', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age']
+    X = df.loc[:, features]
+    y = df.loc[:, ['Diabetic']] 
+    
+    return train_test_split(X, y, random_state=0, train_size = .75)
 
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
