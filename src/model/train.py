@@ -45,7 +45,7 @@ def split_data(df):
     df = df.loc[:, columns]
     df.head(10)
 
-    #Features and Target
+    # Features and Target
     features = ['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure', 'TricepsThickness', 'floors', 'price', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age']
     X = df.loc[:, features]
     y = df.loc[:, ['Diabetic']]
