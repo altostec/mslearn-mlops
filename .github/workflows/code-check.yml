@@ -8,14 +8,19 @@ on:
   pull_request:    
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  job1:
+    name: pytest
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting      
+    - name: Check out repo
+      uses: actions/checkout@main
+    - name: Use Python version 3.8
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.8'
+    - name: Install Flake8
       run: |
-        echo "Will add code checks here in next challenge"
+        python -m pip install flake8
+    - name: Run linting tests
+      run: | 
+        flake8 src/model/
