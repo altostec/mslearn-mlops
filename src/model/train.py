@@ -41,16 +41,16 @@ def get_csvs_df(path):
 
 # DONE-TO DO: add function to split data
 def split_data(df):
-    columns = ['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','floors','price', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age', 'Diabetic']
+    columns = ['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure', 'TricepsThickness', 'floors', 'price', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age', 'Diabetic']
     df = df.loc[:, columns]
     df.head(10)
 
     #Features and Target
-    features = ['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','floors','price', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age']
+    features = ['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure', 'TricepsThickness', 'floors', 'price', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age']
     X = df.loc[:, features]
-    y = df.loc[:, ['Diabetic']] 
-    
-    return train_test_split(X, y, random_state=0, train_size = .75)
+    y = df.loc[:, ['Diabetic']]
+
+    return train_test_split(X, y, random_state=0, train_size=.75)
 
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
@@ -73,6 +73,7 @@ def parse_args():
 
     # return args
     return args
+
 
 # run script
 if __name__ == "__main__":
