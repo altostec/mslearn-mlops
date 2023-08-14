@@ -40,7 +40,7 @@ def get_csvs_df(path):
 
 
 # DONE-TO DO: add function to split data
-def split_data(df)		
+def split_data(df):
     columns = ['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','floors','price', 'SerumInsulin', 'BMI', 'DiabetesPedigree', 'Age', 'Diabetic']
     df = df.loc[:, columns]
     df.head(10)
